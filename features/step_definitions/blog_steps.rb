@@ -10,3 +10,7 @@ end
 Then(/^that post is in my favorites$/) do
   expect(@me.favorite_posts.include? @post).to eq true
 end
+
+And(/^I am in the posts' followers$/) do
+  expect(@post.followers.include? @me).to eq true
+end
