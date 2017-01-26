@@ -13,14 +13,5 @@ class User < ActiveRecord::Base
   end
 
   has_many :favorites
-  has_many :posts, through: :favorites
-
-  def favorite_posts
-    # favorites = Favorite.where user_id: id
-    # post_ids = favorites.map { |f| f.post_id }
-
-    # post_ids = Favorite.where(user_id: id).pluck :post_id
-    # Post.where(id: post_ids)
-    posts
-  end
+  has_many :favorite_posts, through: :favorites, source: :post
 end
