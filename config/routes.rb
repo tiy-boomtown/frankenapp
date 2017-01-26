@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get '/posts/:id' => 'posts#show'
+  post '/posts/:id/favorite' => 'posts#favorite'
+  get '/dashboard' => 'pages#dashboard'
+
   root 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
